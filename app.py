@@ -35,7 +35,6 @@ def search():
     if query_vector is None:
         return jsonify({"error": "Error embedding the query text."}), 500
 
-    # Calculate cosine similarities
     similarities = cosine_similarity([query_vector], embeddings).flatten()
     indices = similarities.argsort()[-n_neighbors:][::-1]
     scores = similarities[indices]
@@ -64,7 +63,6 @@ def search():
 
         matching_paragraphs = []
 
-        # Find matching paragraphs
         if text:
             for paragraph in text.split("\n\n"):
                 if re.search(re.escape(query_text), paragraph, re.IGNORECASE):
