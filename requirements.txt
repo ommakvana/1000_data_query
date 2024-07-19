@@ -1,0 +1,6 @@
+bs4
+pymongo
+sentence_transformers
+flask
+numpy
+scikit-learn
